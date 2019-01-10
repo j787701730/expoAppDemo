@@ -10,11 +10,14 @@ import {
   Container,
   Button,
   Text,
-  Drawer,
+  // Drawer,
   Content,
   List,
   ListItem
 } from 'native-base';
+import Drawer from 'react-native-drawer';
+import Swiper from 'react-native-swiper';
+import { ajax } from '../utils/utils';
 import { Constants } from 'expo';
 
 // import { MonoText } from '../components/StyledText';
@@ -26,11 +29,18 @@ export default class HomeScreen extends React.Component {
     header: null,
   };
 
+
+  componentDidMount() {
+    ajax('/index/slider', '', false, (data) => {
+      console.log(data);
+    });
+  }
+
   openDrawer = () => {
-    this.drawer._root.open();
+    this.drawer.open();
   };
   closeDrawer = () => {
-    this.drawer._root.close();
+    this.drawer.close();
   };
 
   openfooterNav = () => {
@@ -45,11 +55,11 @@ export default class HomeScreen extends React.Component {
           this.drawer = ref;
         }}
         content={
-          <Container style={{ paddingTop: Constants.statusBarHeight }}>
+          <Container style={{ paddingTop: Platform.OS === 'ios' ? 0 : Constants.statusBarHeight }}>
             <Content>
               <List>
                 <ListItem itemHeader first>
-                  <Text>COMEDY</Text>
+                  <Text>COMEDY1</Text>
                 </ListItem>
                 <ListItem>
                   <Text>Hangover</Text>
@@ -68,12 +78,21 @@ export default class HomeScreen extends React.Component {
           </Container>
         }
         onClose={this.closeDrawer}
+        type={'overlay'}
+        tapToClose={true}
+        openDrawerOffset={0.3} // 20% gap on the right side of drawer
+        panCloseMask={0.2}
+        panOpenMask={0.2}
+        closedDrawerOffset={-3}
+        tweenHandler={(ratio) => ({
+          main: { opacity: (2 - ratio) / 2 }
+        })}
       >
-        <Container style={{ paddingTop: Constants.statusBarHeight }}>
+        <Container style={{ paddingTop: Platform.OS === 'ios' ? 0 : Constants.statusBarHeight }}>
           <HeaderNav/>
           <Content>
             <Button onPress={this.openDrawer}>
-              <Text>Button</Text>
+              <Text>Button11</Text>
             </Button>
             <Button onPress={this.openfooterNav}>
               <Text>go UserInfo</Text>
