@@ -9,19 +9,19 @@ export default class FooterNav extends Component {
       <Footer>
         <FooterTab>
           <Button vertical>
-            <Icon name='apps'/>
+            <Icon name="apps" />
             <Text>Apps</Text>
           </Button>
           <Button vertical>
-            <Icon name="camera"/>
+            <Icon name="camera" />
             <Text>Camera</Text>
           </Button>
           <Button vertical active>
-            <Icon active name="navigate"/>
+            <Icon active name="navigate" />
             <Text>Navigate</Text>
           </Button>
           <Button vertical>
-            <Icon name="person"/>
+            <Icon name="person" />
             <Text>Contact</Text>
           </Button>
         </FooterTab>
