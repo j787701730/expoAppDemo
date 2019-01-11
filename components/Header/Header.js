@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
 import {
   Header,
   Item,
@@ -9,7 +9,7 @@ import {
   Right,
   Button,
   Title
-} from "native-base";
+} from 'native-base';
 
 export default class HeaderNav extends Component {
   constructor(props) {

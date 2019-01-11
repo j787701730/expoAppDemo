@@ -1,7 +1,7 @@
 /* eslint-disable no-undef */
 import { ToastAndroid } from 'react-native';
 
-export const pathName = 'http://192.168.1.218/';
+export const pathName = 'https://www.anju.site/';
 
 export function ajax(url, data, toast = true, sucFun = null, failFun = null) {
   return fetch(pathName + url, {

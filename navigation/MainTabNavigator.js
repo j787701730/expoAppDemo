@@ -10,6 +10,7 @@ import SettingsScreen from '../screens/SettingsScreen';
 
 import UserInfo from '../screens/User/UserInfo';
 import AdminScreen from '../screens/AdminScreen';
+import GoodsDesc from '../screens/GoodsDesc';
 
 const HomeStack = createStackNavigator({
   Home: HomeScreen,
@@ -86,6 +87,11 @@ const UserInfoStack = createStackNavigator({
   UserInfo,
 });
 
+
+const GoodsDescStack = createStackNavigator({
+  GoodsDesc,
+});
+
 const BottomTabNav = createBottomTabNavigator({
   HomeStack,
   LinksStack,
@@ -101,4 +107,4 @@ const BottomTabNav = createBottomTabNavigator({
   },
 });
 
-export { BottomTabNav, UserInfoStack };
+export { BottomTabNav, UserInfoStack, GoodsDescStack };
