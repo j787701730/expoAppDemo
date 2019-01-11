@@ -166,9 +166,16 @@ export default class HomeScreen extends React.Component {
     navigation.navigate('UserInfo');
   };
 
-  goGoodsDesc = (id) => {
-    this.props.navigation.navigate('GoodsDesc', { xxxxxx: 123123, });
+  goGoodsDesc =goodsId => () => {
+    const { navigation } = this.props;
+    navigation.push('GoodsDesc', {
+      goodsId
+    });
   };
+
+  // goGoodsDesc = (id) => {
+  //   this.props.navigation.navigate('GoodsDesc', { xxxxxx: 123123, });
+  // };
 
   render() {
     const {
@@ -234,7 +241,7 @@ export default class HomeScreen extends React.Component {
                       paddingTop: 6
                     }}
                   >
-                    <TouchableOpacity onPress={() => this.props.navigation.navigate('GoodsDesc', { name: 'Brent' })}>
+                    <TouchableOpacity onPress={this.goGoodsDesc(goodsItem.goods_id)}>
                       <Image
                         resizeMode="contain"
                         style={{

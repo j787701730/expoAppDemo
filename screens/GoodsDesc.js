@@ -32,15 +32,19 @@ export default class GoodsDesc extends React.Component {
       goods: null,
       // goods_id: props.navigation.state.params.goodsID
     };
+    const { navigation } = this.props;
+    console.warn(navigation.getParam('goodsId'));
     this.screenWidth = Dimensions.get('window').width;
     this.screenHeight = Dimensions.get('window').height;
   }
 
   componentDidMount() {
-    // this.getGoodsDesc(goods_id);
+    // const { navigation } = this.props;
+    // this.getGoodsDesc(navigation.getParam('goodsId'));
   }
 
   getGoodsDesc = (goods_id) => {
+    console.log(goods_id);
     ajax('goods/desc', { goods_id }, false,
       (data) => {
 
@@ -49,11 +53,10 @@ export default class GoodsDesc extends React.Component {
   };
 
   goBack = () => {
-    this.props.navigation.navigate('Home');
+    this.props.navigation.goBack();
   };
 
   render() {
-    console.warn(this.props);
     const {
       goods
     } = this.state;
